@@ -7,8 +7,8 @@ This project simulates a distributed order/inventory/notification system using m
 | Service               | Description |
 |-----------------------|-------------|
 | `order-service`       | Exposes POST /orders and publishes `order.created` |
-| `inventory-service`   | Listens to `order.created`, updates stock, publishes `inventory.updated` or `inventory.failed` |
-| `notification-service`| Listens to `inventory.updated` / `inventory.failed` and logs messages |
+| `inventory-service`   | Listens to `order.created`, updates stock, publishes `iinventory.processed` |
+| `notification-service`| Listens to `inventory.processed` and logs messages |
 
 ## Tech Stack
 - Node.js + TypeScript + NestJS
