@@ -9,7 +9,6 @@ dotenv.config();
 @Module({
   imports: [
     ThrottlerModule.forRoot({ ttl: 60, limit: 10 } as any),
-    RabbitMQModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.POSTGRES_HOST || 'postgres',

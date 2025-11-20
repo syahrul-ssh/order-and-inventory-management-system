@@ -39,6 +39,22 @@ services:
     depends_on:
       - rabbitmq
       - postgres
+    restart: always
+    networks:
+      - backend
+
+  inventory-service:
+    build: ./inventory-service
+    environment:
+      RMQ_URL: amqp://guest:guest@rabbitmq:5672
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ordersdb
+    depends_on:
+      - rabbitmq
+      - postgres
+    restart: always
     networks:
       - backend
 
