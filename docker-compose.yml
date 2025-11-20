@@ -58,6 +58,16 @@ services:
     networks:
       - backend
 
+  notification-service:
+    build: ./notification-service
+    environment:
+      RMQ_URL: amqp://guest:guest@rabbitmq:5672
+    depends_on:
+      - rabbitmq
+    restart: always
+    networks:
+      - backend
+
 volumes:
   pgdata:
 
